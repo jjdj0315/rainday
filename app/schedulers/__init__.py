@@ -14,6 +14,6 @@ def scheduled_jobs():
 
     # scheduler.add_job(update_model, "interval", seconds=30)
     # scheduler.add_job(scheduled_collection, "interval", seconds=30)
-    # scheduler.add_job(send_email, "interval", minutes=1)
+    # scheduler.add_job(send_email, "interval", seconds=30)
 
     scheduler.start()

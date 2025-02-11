@@ -30,7 +30,9 @@ def index(request):
         selected_region = station_location.station_name
         has_region = None
 
-    station_location = StationLocation.objects.get(kma_station_code=kma_station_code)
+    #station_location = StationLocation.objects.get(kma_station_code=kma_station_code)
+    station_location = StationLocation.objects.filter(kma_station_code=kma_station_code).first()
+    print(station_location)
     last_5_data = Weather.objects.filter(location=station_location).order_by("-date")[:5]
     if request.user.is_authenticated:
         subscribe_form = LocationSubscribeForm(initial={"checkbox_field": list(request.user.subscribed_location_ids())})
